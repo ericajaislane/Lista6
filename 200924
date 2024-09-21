@@ -128,3 +128,31 @@ int main() {
     return 0;
 }
 3. Fa¸ca um programa que receba uma string e a imprima de tr´as-para-frente.
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[101];  // Limite de 100 caracteres + '\0'
+    int i, tamanho;
+
+    // Lendo a string do usuário
+    printf("Digite uma string (até 100 caracteres): ");
+    fgets(str, 101, stdin);
+
+    // Remover o '\n' no final da string lida pelo fgets, se existir
+    if (str[strlen(str) - 1] == '\n') {
+        str[strlen(str) - 1] = '\0';
+    }
+
+    // Obtendo o tamanho da string
+    tamanho = strlen(str);
+
+    // Imprimindo a string de trás para frente
+    printf("String de trás para frente: ");
+    for (i = tamanho - 1; i >= 0; i--) {
+        putchar(str[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
