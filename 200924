@@ -1,4 +1,4 @@
-Ju Crie um reposit´orio e resolva cada um dos seguintes Exerc´ıcios
+umJu Crie um reposit´orio e resolva cada um dos seguintes Exerc´ıcios
 Resolva cada exerc´ıcio em um arquivo .c diferente:
 1. Fa¸ca um algoritmo para ler uma senha, com as seguintes especifica¸c˜oes:
 (a) M´ınimo de 8 caracteres.
@@ -95,6 +95,52 @@ int main() {
         printf("Senha válida!\n");
     } else {
         printf("Senha inválida. Ela deve ter pelo menos 8 caracteres, incluir um número, uma letra maiúscula e uma letra minúscula.\n");
+    }
+
+    return 0;
+}
+#include <stdio.h>
+#include <string.h>
+
+// Função para calcular o tamanho da string sem utilizar strlen
+int calcular_tamanho_sem_strlen(char str[]) {
+    int tamanho = 0;
+    
+    // Percorre a string até encontrar o caractere nulo '\0'
+    while (str[tamanho] != '\0') {
+        tamanho++;
+    }
+    
+    return tamanho;
+}
+
+int main() {
+    char str[101];  // Limite de 100 caracteres + '\0'
+
+    // Lendo a string do usuário
+    printf("Digite uma string (até 100 caracteres): ");
+    fgets(str, 101, stdin);
+
+    // Remover o '\n' no final da string lida pelo fgets, se existir
+    if (str[strlen(str) - 1] == '\n') {
+        str[strlen(str) - 1] = '\0';
+    }
+
+    // A) Calculando o tamanho usando strlen
+    int tamanho_com_strlen = strlen(str);
+
+    // B) Calculando o tamanho sem usar strlen
+    int tamanho_sem_strlen = calcular_tamanho_sem_strlen(str);
+
+    // Exibir os dois resultados
+    printf("Tamanho calculado com strlen: %d\n", tamanho_com_strlen);
+    printf("Tamanho calculado sem strlen: %d\n", tamanho_sem_strlen);
+
+    // C) Comparando os resultados
+    if (tamanho_com_strlen == tamanho_sem_strlen) {
+        printf("Os dois tamanhos são iguais.\n");
+    } else {
+        printf("Os dois tamanhos são diferentes.\n");
     }
 
     return 0;
