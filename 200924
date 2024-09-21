@@ -1,4 +1,4 @@
-umJu Crie um reposit´orio e resolva cada um dos seguintes Exerc´ıcios
+ Crie um reposit´orio e resolva cada um dos seguintes Exerc´ıcios
 Resolva cada exerc´ıcio em um arquivo .c diferente:
 1. Fa¸ca um algoritmo para ler uma senha, com as seguintes especifica¸c˜oes:
 (a) M´ınimo de 8 caracteres.
@@ -7,33 +7,7 @@ Resolva cada exerc´ıcio em um arquivo .c diferente:
 (d) Pelo menos uma letra min´uscula.
 (e) M´aximo de 100 caracteres.
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 
-int validar_senha(char senha[]) {
-    int tem_numero = 0, tem_maiuscula = 0, tem_minuscula = 0;
-    int tamanho = strlen(senha);
-    
-    // Verificar o comprimento da senha
-    if (tamanho < 8 || tamanho > 100) {
-        return 0;
-    }
-
-    // Verificar os critérios
-    for (int i = 0; i < tamanho; i++) {
-        if (isdigit(senha[i])) tem_numero = 1;
-        if (isupper(senha[i])) tem_maiuscula = 1;
-        if (islower(senha[i])) tem_minuscula = 1;
-    }
-
-    // Verificar se todos os critérios foram atendidos
-    if (tem_numero && tem_maiuscula && tem_minuscula) {
-        return 1;
-    }
-
-    return 0;
-}
 
 int main() {
     char senha[101];
@@ -52,6 +26,9 @@ int main() {
 
     return 0;
 }
+
+
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -99,6 +76,11 @@ int main() {
 
     return 0;
 }
+
+2. Fa¸ca um algoritmo que leia uma string e calcule o seu tamanho.
+(a) Calcule utilizando o strlen.
+(b) Calcule sem utilizar o strlen.
+(c) Compare os dois resultados.
 #include <stdio.h>
 #include <string.h>
 
@@ -145,3 +127,4 @@ int main() {
 
     return 0;
 }
+3. Fa¸ca um programa que receba uma string e a imprima de tr´as-para-frente.
