@@ -29,6 +29,8 @@ int main() {
 
 
 
+
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -150,6 +152,50 @@ int main() {
         putchar(str[i]);
     }
     printf("\n");
+
+    return 0;
+}
+4.Fa¸ca um programa que, dada uma string, diga se ela e um pal´ındromo ou n˜ao. Lembrando que um pal´ındromo
+e uma palavra que tenha a propriedade de poder ser lida tanto da direita para a esquerda como da esquerda
+para a direita. Exemplo:
+• ovo
+• arara
+• Socorram-me, subi no ˆonibus em Marrocos.
+• Anotaram a data da maratona
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int eh_palindromo(char str[]) {
+    int i = 0, j = strlen(str) - 1;
+
+    while (i < j) {
+        if (tolower(str[i]) != tolower(str[j])) {
+            return 0;
+        }
+        i++;
+        j--;
+    }
+
+    return 1; 
+}
+
+int main() {
+    char frase[101];
+
+    printf("Digite uma palavra ou uma frase simples: ");
+    fgets(frase, 101, stdin);
+
+    frase[strcspn(frase, "\n")] = '\0';
+
+    if (eh_palindromo(frase)) {
+        printf("É um palíndromo!\n");
+    } else {
+        printf("Não é um palíndromo.\n");
+    }
 
     return 0;
 }
